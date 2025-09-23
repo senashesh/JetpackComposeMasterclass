@@ -50,6 +50,8 @@ dependencies {
     //see libs.versions.toml. for windows size class
     implementation(libs.androidx.adaptive.android)
 
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 
 
     implementation(platform(libs.androidx.compose.bom))

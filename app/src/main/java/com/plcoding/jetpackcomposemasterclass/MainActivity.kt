@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.plcoding.jetpackcomposemasterclass.basic_layout.HotelBookingScreen
+import com.plcoding.jetpackcomposemasterclass.state_management.number_guess.NumberGuessScreenRoot
 import com.plcoding.jetpackcomposemasterclass.ui.theme.JetpackComposeMasterclassTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,9 +22,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             JetpackComposeMasterclassTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    HotelBookingScreen(
+                   /* HotelBookingScreen(
                         modifier = Modifier
                             .padding(innerPadding)
+                    )*/
+                    NumberGuessScreenRoot(
+                        modifier = Modifier
+                        .padding(innerPadding)
                     )
                 }
             }
