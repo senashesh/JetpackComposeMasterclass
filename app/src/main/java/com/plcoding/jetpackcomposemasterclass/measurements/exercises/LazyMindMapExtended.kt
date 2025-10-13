@@ -76,6 +76,71 @@ import kotlin.math.min
             }
         }
     }
+
+    @Composable
+fun MindMapToDo(title: String = "MindMap ToDo",
+                description:String = "Description",
+                modifier: Modifier = Modifier) {
+    var isChecked by remember { mutableStateOf(false) }
+    Row(modifier = modifier
+        .fillMaxWidth()
+        .border(width = 1.dp,color = Color.Black)
+        .padding(16.dp),
+        verticalAlignment = Alignment.CenterVertically) {
+        Column(modifier =Modifier
+            .weight(1f)) {
+            Text(text = title, fontWeight = FontWeight.Bold)
+            Text(text = description)
+
+        }
+        Checkbox(checked = isChecked,
+            onCheckedChange = {isChecked = !isChecked})
+    }
+}
+
+@Composable
+fun IncDecCompose(modifier: Modifier = Modifier) {
+    var count by remember { mutableIntStateOf(0) }
+    Column(modifier = modifier
+        .fillMaxWidth()
+        .border(width = 1.dp,color = Color.Black)
+        .padding(16.dp),
+       horizontalAlignment = Alignment.CenterHorizontally ) {
+        Text(text = "$count", fontWeight = FontWeight.Bold, fontSize = 34.sp)
+        Spacer(modifier = Modifier.padding(8.dp))
+        Row(modifier = modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceAround) {
+            Button(onClick = {count++}) {
+                Text(text = "Inc")
+            }
+            Button(onClick = {count--}) {
+                Text(text = "Dec")
+            }
+        }
+    }
+}
+
+@Preview (showBackground = true)
+@Composable
+private fun MindMapToDoPreview() {
+    JetpackComposeMasterclassTheme {
+        Box(modifier = Modifier.padding(16.dp)){
+            MindMapToDo()
+        }
+
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun IncDecComposePreview() {
+    JetpackComposeMasterclassTheme {
+        Box(modifier = Modifier.padding(16.dp)){
+            IncDecCompose()
+        }
+    }
+}
+
  */
 
 data class ExtMindMapItem( //each item
