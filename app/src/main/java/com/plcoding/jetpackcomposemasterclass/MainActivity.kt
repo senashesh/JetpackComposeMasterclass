@@ -15,6 +15,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.plcoding.jetpackcomposemasterclass.composition_locals.exercise.LocalSnackBar
+import com.plcoding.jetpackcomposemasterclass.composition_locals.exercise.LocalSnackBarDemo
 import com.plcoding.jetpackcomposemasterclass.side_effects.exercises.SideEffectFreeList
 import com.plcoding.jetpackcomposemasterclass.side_effects.exercises.SideEffectFreeViewModel
 import com.plcoding.jetpackcomposemasterclass.ui.theme.JetpackComposeMasterclassTheme
@@ -25,25 +27,12 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JetpackComposeMasterclassTheme {
-
-                val viewModel = viewModel<SideEffectFreeViewModel>()
-                val list = viewModel.list
-                val lazyListState = viewModel.lazyListState
-                val canScrollForward by viewModel.canScrollForward.collectAsStateWithLifecycle()
-
+                val state = LocalSnackBar.current
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
-                    snackbarHost = { SnackbarHost(hostState = viewModel.snackbarHostState) }) { innerPadding ->
+                    snackbarHost = { SnackbarHost(hostState = state) }) { innerPadding ->
+                    LocalSnackBarDemo(modifier = Modifier.padding(innerPadding))
 
-                    SideEffectFreeList(
-                        list = list,
-                        listState = lazyListState,
-                        canScrollForward = canScrollForward,
-                        showSnackBar = { scope ->
-                            viewModel.showSnackBar(scope)
-                        },
-                        modifier = Modifier.padding(innerPadding)
-                    )
                 }
             }
         }

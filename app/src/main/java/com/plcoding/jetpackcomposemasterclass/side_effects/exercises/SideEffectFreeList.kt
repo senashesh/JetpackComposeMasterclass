@@ -25,6 +25,32 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/* Main Activity Code
+     JetpackComposeMasterclassTheme {
+
+                val viewModel = viewModel<SideEffectFreeViewModel>()
+                val list = viewModel.list
+                val lazyListState = viewModel.lazyListState
+                val canScrollForward by viewModel.canScrollForward.collectAsStateWithLifecycle()
+
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    snackbarHost = { SnackbarHost(hostState = viewModel.snackbarHostState) }) { innerPadding ->
+
+                    SideEffectFreeList(
+                        list = list,
+                        listState = lazyListState,
+                        canScrollForward = canScrollForward,
+                        showSnackBar = { scope ->
+                            viewModel.showSnackBar(scope)
+                        },
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
+            }
+ */
+
+
 class SideEffectFreeViewModel : ViewModel() {
     private val TAG = "SideEffectViewModel"
     val list = randomList()
