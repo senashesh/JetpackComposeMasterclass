@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "JetpackComposeMasterclass"
 include(":app")
- 
+include(":app:baselineprofile")

@@ -117,7 +117,7 @@ fun FocusManagementModifiers(modifier: Modifier = Modifier) {
         )
         TextField(
             value = "",
-            onValueChange = {},
+            onValueChange = {}, //no need for keyboardActions and options since it is the last item
         )
         Button(
             onClick = {

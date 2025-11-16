@@ -34,7 +34,7 @@ fun ClickableModifiersDemo(modifier: Modifier = Modifier) {
             )
             .clickable(
                 interactionSource,
-                LocalIndication.current
+                LocalIndication.current //null to remove ripple
             ) {
                 println("Hello world!")
             }

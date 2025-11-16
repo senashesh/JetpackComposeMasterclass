@@ -67,9 +67,19 @@ fun MyCustomTopAppBar(
     }
 }
 
-@Preview
+
+@Preview (showBackground = true)
 @Composable
 private fun CompositionLocalDemoPreview() {
+    JetpackComposeMasterclassTheme {
+        CompositionLocalDemo()
+    }
+}
+
+
+@Preview (showBackground = true)
+@Composable
+private fun MyCustomTopAppBarPreview() {
     JetpackComposeMasterclassTheme {
         MyCustomTopAppBar(
             title = {
